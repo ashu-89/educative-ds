@@ -43,7 +43,6 @@ class CheckMergeArray {
             }
         }
 
-
         return sortedMergedArray; // make a new resultant array and return your results in that
     }
 
