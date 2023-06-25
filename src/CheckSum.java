@@ -6,26 +6,26 @@ class CheckSum
     {
         int[] result = new int[2];
 
-        for(int i=0; i<arr.length-1; i++){
-            for(int j=i+1; j<arr.length; j++){
-                if(arr[i] + arr[j] == n){
-                    result[0] = arr[i];
-                    result[1] = arr[j];
-                    count ++;
-                    return  result;
-                } else if(arr[i]+arr[j] > n){
-                    count++;
-                    break;
-                } else {
-                    count ++;
-                }
+        int left_ptr = 0;
+        int right_ptr = arr.length -1;
 
+        while(left_ptr != right_ptr){
+            if(arr[left_ptr] + arr[right_ptr] == n){
+                result[0] = arr[left_ptr];
+                result[1] = arr[right_ptr];
+                count ++;
+                return result;
+            }
+            else if(arr[left_ptr] + arr[right_ptr] > n){
+                count ++;
+                right_ptr --;
+            } else {
+                count ++;
+                left_ptr ++;
             }
         }
 
         result = arr;
-
-        // write your code here
         return result;   // return the elements in the array whose sum is equal to the value passed as parameter
     }
 
